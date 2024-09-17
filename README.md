@@ -1,11 +1,20 @@
 #Netflix app
 
 
-1. Create React app
-2. Configure tailwind css
-3. Header
-4. Login Form
-5. Sign up
+- Create React app
+- Configure tailwind css
+- Header
+- Login Form
+- Sign up
+- Routing of App
+- Form Validation
+- useRef hook
+- Firebase Setup
+- Deploy the app to firebase
+- create signup user in firebase 
+- Implement sign up user api
+- created redux store with userSlice
+- browse page with user details
 
 
 #Features
