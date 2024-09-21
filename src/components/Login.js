@@ -35,7 +35,7 @@ const Login = () => {
             }).then(() => {
               // Profile updated!
               dispatch(addUser({uid:user.uid,email:email.current.value,displayname:name.current.value}))
-              navigate("/browse")
+ 
             }).catch((error) => {
               // An error occurred
               setErrorMessage(error.message)

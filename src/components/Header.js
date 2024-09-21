@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import netlifxlogo from "../images/logo.png"
 import { signOut } from 'firebase/auth'
 import {auth} from "../utils/firebase"
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { onAuthStateChanged } from 'firebase/auth'
+import { addUser, removeUser } from '../utils/userSlice'
 const Header = () => {
 const navigate=useNavigate()
-
+const dispatch=useDispatch()
 const displayName=useSelector(store=>store?.user)
   const handleSignOut=()=>{
     signOut(auth).then(() => {
@@ -17,6 +19,21 @@ const displayName=useSelector(store=>store?.user)
     });
   }
 
+  useEffect(()=>{
+
+   const unsubscribe= onAuthStateChanged(auth, (user) => {
+    
+      if (user) {
+        const {uid,email,displayName,photoURL} = user
+        dispatch(addUser({uid,email,displayName,photoURL}))
+        navigate("/browse")
+      } else {
+        dispatch(removeUser())
+        navigate("/")
+      }
+    });
+    return ()=>unsubscribe();
+  },[])
  
     
   const photoURL=auth?.currentUser?.photoURL

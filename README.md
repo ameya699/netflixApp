@@ -15,6 +15,11 @@
 - Implement sign up user api
 - created redux store with userSlice
 - browse page with user details
+- Implemented sign out
+- BugFix - Sign up user displayName and profile picture update
+- BugFix - Redirect logged in and logged out user
+- Unsubscribe to the onauthstatechange call back for firebase
+- 
 
 
 #Features
