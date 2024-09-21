@@ -19,7 +19,6 @@
 - BugFix - Sign up user displayName and profile picture update
 - BugFix - Redirect logged in and logged out user
 - Unsubscribe to the onauthstatechange call back for firebase
-- 
 
 
 #Features
